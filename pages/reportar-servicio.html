@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportar Servicio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../pages/opciones.html">Fleetup</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item" id="consultar-ids-nav" style="display: none;">
+              <a class="nav-link" href="consultarid.html">Consultar IDs</a>
+            </li>
+            <li class="nav-item" id="register-tecnicos" style="display: none;">
+              <a class="nav-link" href="tecnicos.html">Registrar Técnicos</a>
+            </li>
+          </ul>
+          <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+        </div>
+      </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Reportar Servicio</h1>
+        <form id="service-form">
+            <div class="form-group">
+                <label for="user-name">Nombre:</label>
+                <input type="text" class="form-control" id="user-name" readonly>
+            </div>
+            <div class="form-group">
+                <label for="user-email">Correo:</label>
+                <input type="email" class="form-control" id="user-email" readonly>
+            </div>
+            <div class="form-group">
+                <label for="id-list">ID del dispositivo:</label>
+                <select class="form-control" id="id-list" required>
+                    <option value="">Seleccione el ID</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="client-list">Cliente/Técnico:</label>
+                <select class="form-control" id="client-list" required>
+                    <option value="">Seleccione el cliente o técnico</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="service-type">Tipo de Servicio:</label>
+                <select class="form-control" id="service-type" required>
+                    <option value="">Seleccione el tipo de servicio</option>
+                    <option value="instalacion">Instalación</option>
+                    <option value="revision">Revisión</option>
+                    <option value="desinstalacion">Desinstalacion</option>
+                    <option value="cambio">Cambio de equipo</option>
+                    <option value="vf">Visita en Falso</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="device-photo">Foto del dispositivo:</label>
+                <input type="file" class="form-control-file" id="device-photo" accept="image/*" required>
+                <img id="device-photo-preview" src="#" alt="Vista previa del dispositivo" class="img-thumbnail mt-2" style="display:none; max-width: 150px;">
+            </div>
+            <div class="form-group">
+                <label for="installation-photo">Foto de la instalación:</label>
+                <input type="file" class="form-control-file" id="installation-photo" accept="image/*" required>
+                <img id="installation-photo-preview" src="#" alt="Vista previa de la instalación" class="img-thumbnail mt-2" style="display:none; max-width: 150px;">
+            </div>
+            <div class="form-group">
+                <label for="service-sheet">Hoja de Servicio (Foto o PDF):</label>
+                <input type="file" class="form-control-file" id="service-sheet" accept="image/*,application/pdf" required>
+                <div id="service-sheet-preview" class="mt-2"></div> <!-- Aquí se muestra la vista previa -->
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar Reporte</button>
+        </form>
+    </div>
+
+    <!-- Firebase App (el SDK de Firebase principal) -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth-compat.js"></script>
+    <!-- Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore-compat.js"></script>
+    <!-- Tu archivo JavaScript -->
+    <script type="module" src="../scripts/reportar-servicio.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/alta_cliente.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="opciones.html">Fleetup</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="almacen-actividades-nav" style="display: none;">
+                        <a class="nav-link" href="almacen_actividades.html">Almacén Actividades</a>
+                    </li>
+                    <li class="nav-item" id="consultar-ids-nav" style="display: none;">
+                        <a class="nav-link" href="consultarid.html">Consultar IDs</a>
+                    </li>
+                    <li class="nav-item" id="register-tecnicos" style="display: none;">
+                        <a class="nav-link" href="tecnicos.html">Técnicos</a>
+                    </li>
+                    <li class="nav-item" id="sac-micuenta-nav" style="display: none;">
+                        <a class="nav-link" href="tecnicos.html">SAC Mi Cuenta</a>
+                    </li>
+                </ul>
+                <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-5">
+        <h2>Alta de Clientes</h2>
+        <div id="access-denied" class="alert alert-danger" style="display: none;">
+            No tienes acceso a esta página.
+        </div>
+        <form id="alta-cliente-form" style="display: none;">
+            <div class="form-group">
+                <label for="correo-usuario">Correo Usuario:</label>
+                <input type="email" class="form-control" id="correo-usuario" readonly>
+            </div>
+            <div class="form-group">
+                <label for="usuario-nombre">Usuario Nombre:</label>
+                <input type="text" class="form-control" id="usuario-nombre" readonly>
+            </div>
+            <div class="form-group">
+                <label for="fecha-hora">Fecha y Hora:</label>
+                <input type="text" class="form-control" id="fecha-hora" readonly>
+            </div>
+            <div class="form-group">
+                <label for="cliente">Cliente:</label>
+                <input type="text" class="form-control" id="cliente" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" class="form-control" id="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="cxc">CXC:</label>
+                <input type="text" class="form-control" id="cxc" required>
+            </div>
+            <div class="form-group">
+                <label for="contacto-cxc">Contacto CXC:</label>
+                <input type="text" class="form-control" id="contacto-cxc" required>
+            </div>
+            <div class="form-group">
+                <label for="tel-contacto-cxc">Tel Contacto CXC:</label>
+                <input type="text" class="form-control" id="tel-contacto-cxc" required>
+            </div>
+            <div class="form-group">
+                <label for="morosidad">Morosidad:</label>
+                <select class="form-control" id="morosidad" required>
+                    <option value="no">No</option>
+                    <option value="si">Sí</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ejecutivo">Ejecutivo:</label>
+                <select class="form-control" id="ejecutivo" required>
+                    <!-- Opciones llenadas dinámicamente -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select class="form-control" id="status" required>
+                    <option value="activa">Activa</option>
+                    <option value="cancelada">Cancelada</option>
+                    <option value="reactivada">Reactivada</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Dar de Alta</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script type="module" src="../scripts/app.js"></script>
+
+    <!-- Tu script personalizado -->
+    <script type="module" src="../scripts/alta_cliente.js"></script>
+</body>
+
+</html>

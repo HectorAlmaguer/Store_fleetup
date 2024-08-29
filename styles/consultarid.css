@@ -1,0 +1,10 @@
+  .evidencia-miniatura {
+      transition: transform 0.2s ease-in-out;
+  }
+
+  .evidencia-miniatura:hover {
+      transform: scale(4);
+      /* Agranda la imagen al 200% de su tamaño original */
+      z-index: 10;
+      /* Asegura que la imagen se muestre por encima de otros elementos */
+  }
